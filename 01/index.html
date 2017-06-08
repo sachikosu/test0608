@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScriptの練習</title>
+  </head>
+  <body>
+      <!--<script>
+        /*
+              タイマー処理
+                  setInterval
+                  setTimeout
+        */
+
+        var i = 0;
+        function show() {
+                console.log(i++);
+                var tid = setTimeout(function() {
+                    show();
+                }, 1000);
+                if (i > 3) {
+                    clearTimeout(tid);
+                }
+        }
+        show();
+
+    </script>-->
+    <!--<script>
+        /*
+            配列：  グループ化されたデータ
+        */
+        var score_1 = 100, score_2 = 200;
+
+        /*
+        var score = [100, 300, 500, "suzuki"];
+        console.log(score[0]); // 添字　0, 1, ...
+        score[2] = 400;
+        console.log(score);
+        */
+
+        var m = [
+            [1, 2, 3],
+            [4, 5, 6]
+        ];
+        console.log(m[1][1]);
+    </script>-->
+    <!--<script>
+        /*
+            オブジェクト
+              名前と値
+        */
+        var user = {
+            email: "s.suzuki@solairo.co.jp",  // プロパティ
+            score: 80,
+            greet: function(name) { //　メソッド
+              console.log("hello, " + name + " from " + this.email);
+            }
+        };
+        //console.log(user["email"]);
+        //console.log(user.email);
+        //user .score = 100;
+        //console.log(user);
+        user.greet("Tom");
+
+    </script>-->
+    <script>
+        /*
+            組み込みオブジェクト
+
+            - String
+            - Array
+            - Math
+            - Date
+        */
+        var s = new String("suzuki");
+        console.log(s.length);
+        console.log(s.replace("s", "S"));
+
+        var a = new Array(100, 300, 200);
+        // var a = [100, 300, 200];
+        console.log(a.length);
+        // unshift -> array <- push
+        // shift <- array -> pop
+        a.push(500);
+        console.log(a);
+        a.splice(1, 2, 800, 1000);
+        console.log(a);
+
+        console.log(Math.PI);
+        console.log(Math.ceil(5.3));
+        console.log(Math.floor(5.3));
+        console.log(Math.round(5.3));
+        console.log(Math.random());
+
+        var d = new Date();
+        var d = new Date(2014, 1, 11, 10, 20, 30);
+        console.log(d.getFullYear());
+        console.log(d.getMonth());
+        console.log(d.getTime()); // 1070/1/1
+
+
+    </script>
+    <style>
+      .myStyle {
+        font-weight: bold;
+        border: 1px solid gray;
+      }
+    </style>
+    <h1>見出し</h1>
+    <p id="msg">こんにちは！</p>
+    <button id="add">Click!</button>
+    <script>
+        /*
+
+        */
+        //console.dir(window);
+        // console.log(window.outerHeight);
+        // window.location.href = 'http://dotinstall.com';
+
+        // document - 今開いているページ
+
+        // document object model (DOM)
+
+        var e = document.getElementById('msg');
+        e.textContent ='hello!';
+        e.style.color = 'red';
+        e.className = 'myStyle';
+        /*
+            body
+              p
+                  text
+        */
+        document.getElementById('add').addEventListener('click', function(){
+          var greet = document.createElement('p'),
+              text = document.createTextNode('hello world');
+          document.body.appendChild(greet).appendChild(text);
+        });
+
+    </script>
+  </body>
+</html>
